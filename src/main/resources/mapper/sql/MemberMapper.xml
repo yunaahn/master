@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pepe.test.dao.MemberDao">
+  <insert id="insertMember" parameterType="memberDto">
+    insert into table03 values (table03_seq.nextval,#{userId},#{userPw},#{userName},#{userEmail},#{userAddr},SYSDATE,
+    #{userZipcode},#{userAddrEtc})
+  </insert>
+  <select id="idCheck" parameterType="memberDto" resultType="Integer">
+    select count(*) as count from table03 where userId = #{userId}
+  </select>
+    <select id="loginMember" parameterType="memberDto" resultType="memberDto">
+    select * from table03 where userId = #{userId} and userPw = #{userPw}
+  </select>
+ 
+   <update id="modifyMember" parameterType="memberDto">
+    update table03 set username = #{userName}, 
+                    useraddr = #{userAddr}, 
+                    zipcode = #{userZipcode}, 
+                    useraddretc = #{userAddrEtc} 
+            where userId = #{userId} and  userpw = #{userPw}
+  </update>
+
+  <delete id="deleteMember" parameterType="memberDto">
+    delete from table03 where userId=#{userId} and userpw = #{userPw}
+  </delete>
+</mapper>

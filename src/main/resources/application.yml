@@ -1,0 +1,26 @@
+server:
+  port: 9092
+
+spring:
+  output:
+    ansi:
+      enabled: always
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver  
+    url: jdbc:oracle:thin:@localhost:1521:xe  
+    username: pepe  
+    password: 0108
+
+#ERROR > WARN > DEBUG > INFO > TRACE
+logging:
+  level:
+    root: INFO  
+    '[com.pepe.test]': DEBUG
+
+mybatis:
+  mapper-locations: classpath:mapper/sql/**/*.xml
+  config-location: classpath:mapper/config/config.xml

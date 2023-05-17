@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns="http://www.thymeleaf.org" layout:decorate="~{/layout/layout.html}">
+  <head>
+    <title>HOME</title>
+  </head>
+  <body>
+    <div layout:fragment="contents">
+      <div class="container">
+        <!-- 여기서 부터 달라지는 내용 -->
+        <h2>BOARD LIST</h2>
+        <table class="table table-striped">
+          <colgroup>
+            <col />
+            <col />
+          </colgroup>
+          <thead>
+            <tr>
+              <th scope="col">IMAGE</th>
+              <th scope="col">WRITER</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr th:each="item : ${imageboardList}">
+              <td>
+                <a href="" th:href="@{/board/view(no=${item.no})}">
+                  <img th:src="${item.imageUrl}" alt="Board Image" width="100" height="100" />
+                </a>
+              </td>
+              <td th:text="${item.userName}">Otto</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="mt-5 text-center">
+          <a href="/board/imagewrite" class="btn btn-primary">WRITE</a>
+          <a href="/" class="btn btn-secondary">HOME</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
