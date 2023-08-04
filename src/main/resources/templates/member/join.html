@@ -13,7 +13,7 @@
             <label for="exampleFormControlInput1" class="form-label">USER ID</label>
             <div class="input-group mb-3">
               <input type="text" class="form-control" placeholder="id를 입력해 주세요." aria-label="Recipient's username" aria-describedby="button-addon2" id="userId" name="userId" th:value="${memberDto.userId}" />
-              <button class="btn btn-secondary" type="button" id="btnIdCheck">ID 중복검사</button>
+              <button class="btn btn-secondary" type="button" id="btnIdCheck">ID 확인</button>
             </div>
             <p th:if="${#fields.hasErrors('userId')}" th:errors="*{userId}" class="error">에러 메세지 출력</p>
           </div>
